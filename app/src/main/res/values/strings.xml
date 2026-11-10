@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">持久通知终端</string>
+    <string name="app_title">PERSIST NOTIFY // 持久通知终端</string>
+    <string name="app_subtitle">RHODES ISLAND OPS · 通知部署系统</string>
+    <string name="version_tag">v1.0</string>
+    <string name="status_label">STATUS // 通知状态</string>
+    <string name="status_active">ACTIVE · 通知部署中</string>
+    <string name="status_standby">STANDBY · 未部署</string>
+    <string name="status_no_permission">ERROR · 未授予通知权限</string>
+    <string name="status_hint">通知将保持显示 · 设备重启后自动恢复 · 仅可在本应用内关闭</string>
+    <string name="content_label">NOTIFICATION CONTENT // 通知内容（字数不限）</string>
+    <string name="content_hint">输入通知内容…\n默认内容为两个C语言题库中所有题目的完整答案</string>
+    <string name="char_count_fmt">CHARS: %d</string>
+    <string name="char_count_zero">CHARS: 0</string>
+    <string name="btn_deploy">▶ DEPLOY // 部署通知</string>
+    <string name="btn_update">⟳ UPDATE // 更新内容</string>
+    <string name="btn_close">■ TERMINATE // 关闭通知</string>
+    <string name="footer_info">INFO: 通知内容字数不限制，输入多少显示多少。</string>
+    <string name="footer_credit">UI STYLE // ARKNIGHTS DESIGN LANGUAGE</string>
+    <string name="notif_title">持久通知</string>
+    <string name="empty_notice">(空内容)</string>
+</resources>

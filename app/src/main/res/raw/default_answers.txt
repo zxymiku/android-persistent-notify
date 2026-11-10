@@ -1,0 +1,1876 @@
+════════════════════════════════════════════
+题库1：C语言测试1题库（for/while/switch）答案
+════════════════════════════════════════════
+
+【题库1-第1题】
+题目：用 for 循环计算 1 到 100 的整数和，并输出结果。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i, sum = 0;
+    for (i = 1; i <= 100; i++)
+        sum += i;
+    printf("1到100的和为：%d\n", sum);
+    return 0;
+}
+
+【题库1-第2题】
+题目：用 for 循环计算 1 到 100 中所有偶数的和，输出结果。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i, sum = 0;
+    for (i = 2; i <= 100; i += 2)
+        sum += i;
+    printf("1到100中偶数的和为：%d\n", sum);
+    return 0;
+}
+
+【题库1-第3题】
+题目：用 for 循环计算 1 到 100 中所有奇数的和，输出个数。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i, sum = 0, count = 0;
+    for (i = 1; i <= 100; i += 2) {
+        sum += i;
+        count++;
+    }
+    printf("1到100中奇数的和为：%d\n", sum);
+    printf("奇数的个数为：%d\n", count);
+    return 0;
+}
+
+【题库1-第4题】
+题目：用 for 循环打印 10 到 1 的倒序数字（每行 1 个数字）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i;
+    for (i = 10; i >= 1; i--)
+        printf("%d\n", i);
+    return 0;
+}
+
+【题库1-第5题】
+题目：用 for 循环打印 1 到 9 的乘法表（格式：1×1=1，1×2=2…9×9=81）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i, j;
+    for (i = 1; i <= 9; i++) {
+        for (j = 1; j <= i; j++)
+            printf("%d×%d=%d\t", j, i, i * j);
+        printf("\n");
+    }
+    return 0;
+}
+
+【题库1-第6题】
+题目：用 for 循环计算 10 的阶乘（10! = 1×2×3×…×10），输出结果。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i;
+    long long fact = 1;
+    for (i = 1; i <= 10; i++)
+        fact *= i;
+    printf("10的阶乘为：%lld\n", fact);
+    return 0;
+}
+
+【题库1-第7题】
+题目：用 for 循环接收用户输入的 10 个整数，计算其中正数的平均值并输出。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i, num, sum = 0, count = 0;
+    for (i = 1; i <= 10; i++) {
+        printf("请输入第%d个整数：", i);
+        scanf("%d", &num);
+        if (num > 0) {
+            sum += num;
+            count++;
+        }
+    }
+    if (count > 0)
+        printf("正数的平均值为：%.2f\n", (double)sum / count);
+    else
+        printf("没有输入正数。\n");
+    return 0;
+}
+
+【题库1-第8题】
+题目：用 for 循环打印一个 10行10列的"*"（组成正方形）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i, j;
+    for (i = 1; i <= 10; i++) {
+        for (j = 1; j <= 10; j++)
+            printf("* ");
+        printf("\n");
+    }
+    return 0;
+}
+
+【题库1-第9题】
+题目：用 for 循环打印一个 5 行的直角三角形（第 1 行 1 个 *，第 2 行 2 个 *… 第 5 行 5 个 *）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i, j;
+    for (i = 1; i <= 5; i++) {
+        for (j = 1; j <= i; j++)
+            printf("*");
+        printf("\n");
+    }
+    return 0;
+}
+
+【题库1-第10题】
+题目：用 for 循环判断 1 到 50 中哪些是素数（只能被 1 和自身整除的数），并输出所有素数。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i, j, isPrime;
+    for (i = 2; i <= 50; i++) {
+        isPrime = 1;
+        for (j = 2; j * j <= i; j++) {
+            if (i % j == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+        if (isPrime)
+            printf("%d ", i);
+    }
+    printf("\n");
+    return 0;
+}
+
+【题库1-第11题】
+题目：用 for 循环计算 1 到 100 中所有能被 3 或 5 整除的数的和，输出结果。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i, sum = 0;
+    for (i = 1; i <= 100; i++) {
+        if (i % 3 == 0 || i % 5 == 0)
+            sum += i;
+    }
+    printf("1到100中能被3或5整除的数的和为：%d\n", sum);
+    return 0;
+}
+
+【题库1-第12题】
+题目：用 for 循环接收用户输入的一个正整数 n，打印 n 行的"*"（第1行1个*，第 2 行 3 个 *… 第 n 行 2n-1 个 *）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int n, i, j;
+    printf("请输入一个正整数n：");
+    scanf("%d", &n);
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= 2 * i - 1; j++)
+            printf("*");
+        printf("\n");
+    }
+    return 0;
+}
+
+【题库1-第13题】
+题目：用 for 循环将 1 到 20 的整数存入数组，再遍历数组打印所有元素（每个元素间隔 1 个空格）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[20], i;
+    for (i = 0; i < 20; i++)
+        a[i] = i + 1;
+    for (i = 0; i < 20; i++)
+        printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}
+
+【题库1-第14题】
+题目：用 for 循环统计用户输入的一个字符串中字母（a-z、A-Z）的个数，忽略数字和符号。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    char str[100];
+    int i, count = 0;
+    printf("请输入一个字符串：");
+    scanf("%s", str);
+    for (i = 0; str[i] != '\0'; i++) {
+        if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
+            count++;
+    }
+    printf("字母的个数为：%d\n", count);
+    return 0;
+}
+
+【题库1-第15题】
+题目：用 for 循环计算两个正整数 m 和 n（m < n）之间所有整数的平方和，m 和 n 由用户输入。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int m, n, i;
+    long long sum = 0;
+    printf("请输入m和n（m<n）：");
+    scanf("%d %d", &m, &n);
+    for (i = m; i <= n; i++)
+        sum += (long long)i * i;
+    printf("%d到%d之间所有整数的平方和为：%lld\n", m, n, sum);
+    return 0;
+}
+
+【题库1-第16题】
+题目：用 while 循环计算 1 到 50 的整数和，输出结果。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i = 1, sum = 0;
+    while (i <= 50) {
+        sum += i;
+        i++;
+    }
+    printf("1到50的和为：%d\n", sum);
+    return 0;
+}
+
+【题库1-第17题】
+题目：用 while 循环接收用户输入的整数，直到输入 0 时停止，统计输入的非零整数个数。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int num, count = 0;
+    printf("请输入整数（输入0停止）：");
+    scanf("%d", &num);
+    while (num != 0) {
+        count++;
+        scanf("%d", &num);
+    }
+    printf("非零整数的个数为：%d\n", count);
+    return 0;
+}
+
+【题库1-第18题】
+题目：用 while 循环打印 1 到 100 中所有能被 4 整除的数，每个数间隔 1 个空格。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i = 1;
+    while (i <= 100) {
+        if (i % 4 == 0)
+            printf("%d ", i);
+        i++;
+    }
+    printf("\n");
+    return 0;
+}
+
+【题库1-第19题】
+题目：用 while 循环计算一个正整数的位数（如输入 123，输出 3；输入 45，输出 2），正整数由用户输入。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int num, count = 0;
+    printf("请输入一个正整数：");
+    scanf("%d", &num);
+    if (num <= 0) {
+        printf("输入必须是正整数！\n");
+        return 1;
+    }
+    while (num > 0) {
+        num /= 10;
+        count++;
+    }
+    printf("该整数的位数为：%d\n", count);
+    return 0;
+}
+
+【题库1-第20题】
+题目：用 while 循环实现 "猜数字游戏"：程序随机生成 1-100 的整数，用户每次输入猜测值，程序提示 "太大""太小"，直到猜对为止，统计猜测次数。
+答案：
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main(void)
+{
+    int target, guess, count = 0;
+    srand((unsigned)time(NULL));
+    target = rand() % 100 + 1;
+    printf("猜数字游戏开始（1-100）！\n");
+    while (1) {
+        printf("请输入你猜的数字：");
+        scanf("%d", &guess);
+        count++;
+        if (guess > target)
+            printf("太大\n");
+        else if (guess < target)
+            printf("太小\n");
+        else {
+            printf("恭喜你猜对了！答案是%d，共猜了%d次。\n", target, count);
+            break;
+        }
+    }
+    return 0;
+}
+
+【题库1-第21题】
+题目：用 while 循环将用户输入的一个正整数反转（如输入 1234，输出 4321；输入 56，输出 65）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int num, reversed = 0;
+    printf("请输入一个正整数：");
+    scanf("%d", &num);
+    while (num > 0) {
+        reversed = reversed * 10 + num % 10;
+        num /= 10;
+    }
+    printf("反转后的整数为：%d\n", reversed);
+    return 0;
+}
+
+【题库1-第22题】
+题目：用 while 循环计算 1 到 100 中所有能被 7 整除但不能被 3 整除的数的个数，输出个数。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i = 1, count = 0;
+    while (i <= 100) {
+        if (i % 7 == 0 && i % 3 != 0)
+            count++;
+        i++;
+    }
+    printf("个数为：%d\n", count);
+    return 0;
+}
+
+【题库1-第23题】
+题目：用 while 循环接收用户输入的多个整数，计算所有输入数的最大值和最小值，输入 -1 时停止。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int num, max, min, first = 1;
+    printf("请输入多个整数（输入-1停止）：");
+    while (1) {
+        scanf("%d", &num);
+        if (num == -1)
+            break;
+        if (first) {
+            max = num;
+            min = num;
+            first = 0;
+        } else {
+            if (num > max)
+                max = num;
+            if (num < min)
+                min = num;
+        }
+    }
+    if (first)
+        printf("没有输入有效数据。\n");
+    else {
+        printf("最大值为：%d\n", max);
+        printf("最小值为：%d\n", min);
+    }
+    return 0;
+}
+
+【题库1-第24题】
+题目：用 while 循环打印 1 到 100 中所有个位数为 5 的数，每行打印 5 个数据。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i = 1, count = 0;
+    while (i <= 100) {
+        if (i % 10 == 5) {
+            printf("%d\t", i);
+            count++;
+            if (count % 5 == 0)
+                printf("\n");
+        }
+        i++;
+    }
+    if (count % 5 != 0)
+        printf("\n");
+    return 0;
+}
+
+【题库1-第25题】
+题目：用 while 循环计算 1 + 1/2 + 1/3 + … + 1/100 的和（保留 2 位小数输出）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i = 1;
+    double sum = 0.0;
+    while (i <= 100) {
+        sum += 1.0 / i;
+        i++;
+    }
+    printf("结果为：%.2f\n", sum);
+    return 0;
+}
+
+【题库1-第26题】
+题目：用 while 循环判断用户输入的正整数是否为 "回文数"（如 121、1331 是回文数，123 不是），并输出判断结果。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int num, original, reversed = 0;
+    printf("请输入一个正整数：");
+    scanf("%d", &num);
+    original = num;
+    while (num > 0) {
+        reversed = reversed * 10 + num % 10;
+        num /= 10;
+    }
+    if (original == reversed)
+        printf("%d 是回文数\n", original);
+    else
+        printf("%d 不是回文数\n", original);
+    return 0;
+}
+
+【题库1-第27题】
+题目：用 while 循环实现：从 1 开始累加，直到累加和超过 1000，输出此时的累加和与累加的最后一个数。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i = 0, sum = 0;
+    while (sum <= 1000) {
+        i++;
+        sum += i;
+    }
+    printf("累加和为：%d\n", sum);
+    printf("累加的最后一个数为：%d\n", i);
+    return 0;
+}
+
+【题库1-第28题】
+题目：用 while 循环接收用户输入的数字，统计其中数字字符（0-9）的个数，输入 "#" 时停止输入。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    char ch;
+    int count = 0;
+    printf("请输入字符（输入#停止）：");
+    while (1) {
+        scanf(" %c", &ch);
+        if (ch == '#')
+            break;
+        if (ch >= '0' && ch <= '9')
+            count++;
+    }
+    printf("数字字符的个数为：%d\n", count);
+    return 0;
+}
+
+【题库1-第29题】
+题目：用 while 循环打印一个 4 行的倒直角三角形（第 1 行 4 个 *，第 2 行 3 个 *… 第 4 行 1 个 *）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int i = 4, j;
+    while (i >= 1) {
+        j = 1;
+        while (j <= i) {
+            printf("*");
+            j++;
+        }
+        printf("\n");
+        i--;
+    }
+    return 0;
+}
+
+【题库1-第30题】
+题目：计算两个正整数的最大公约数（如输入 12 和 18，输出 6；输入 7 和 5，输出 1），数字由用户输入。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a, b, t;
+    printf("请输入两个正整数：");
+    scanf("%d %d", &a, &b);
+    while (b != 0) {
+        t = a % b;
+        a = b;
+        b = t;
+    }
+    printf("最大公约数为：%d\n", a);
+    return 0;
+}
+
+【题库1-第31题】
+题目：用 switch 语句实现：接收用户输入的 1-7 的整数，输出对应的星期几（1→星期一，2→星期二…7→星期日），输入其他数字提示 "输入错误"。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int day;
+    printf("请输入1-7的整数：");
+    scanf("%d", &day);
+    switch (day) {
+    case 1: printf("星期一\n"); break;
+    case 2: printf("星期二\n"); break;
+    case 3: printf("星期三\n"); break;
+    case 4: printf("星期四\n"); break;
+    case 5: printf("星期五\n"); break;
+    case 6: printf("星期六\n"); break;
+    case 7: printf("星期日\n"); break;
+    default: printf("输入错误\n"); break;
+    }
+    return 0;
+}
+
+【题库1-第32题】
+题目：用 switch 语句实现简易计算器：接收用户输入的两个整数 a、b 和一个运算符（+、-、*、/），计算并输出结果（除法需判断除数不为 0，输入其他运算符提示 "运算符错误"）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a, b;
+    char op;
+    printf("请输入表达式（如 3+5）：");
+    scanf("%d %c %d", &a, &op, &b);
+    switch (op) {
+    case '+':
+        printf("%d %c %d = %d\n", a, op, b, a + b);
+        break;
+    case '-':
+        printf("%d %c %d = %d\n", a, op, b, a - b);
+        break;
+    case '*':
+        printf("%d %c %d = %d\n", a, op, b, a * b);
+        break;
+    case '/':
+        if (b != 0)
+            printf("%d %c %d = %d\n", a, op, b, a / b);
+        else
+            printf("除数不能为0\n");
+        break;
+    default:
+        printf("运算符错误\n");
+        break;
+    }
+    return 0;
+}
+
+【题库1-第33题】
+题目：用 switch 语句实现：接收用户输入的月份（1-12），输出对应的季节（3-5→春季，6-8→夏季，9-11→秋季，12、1-2→冬季），输入其他数字提示 "月份错误"。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int month;
+    printf("请输入月份（1-12）：");
+    scanf("%d", &month);
+    switch (month) {
+    case 3: case 4: case 5:
+        printf("春季\n");
+        break;
+    case 6: case 7: case 8:
+        printf("夏季\n");
+        break;
+    case 9: case 10: case 11:
+        printf("秋季\n");
+        break;
+    case 12: case 1: case 2:
+        printf("冬季\n");
+        break;
+    default:
+        printf("月份错误\n");
+        break;
+    }
+    return 0;
+}
+
+【题库1-第34题】
+题目：用 switch 语句实现：接收用户输入的学生成绩（0-100），按分数段输出等级（90-100→A，80-89→B，70-79→C，60-69→D，0-59→E），输入超出范围提示 "成绩错误"。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int score;
+    printf("请输入成绩（0-100）：");
+    scanf("%d", &score);
+    if (score < 0 || score > 100) {
+        printf("成绩错误\n");
+        return 0;
+    }
+    switch (score / 10) {
+    case 10: case 9:
+        printf("A\n");
+        break;
+    case 8:
+        printf("B\n");
+        break;
+    case 7:
+        printf("C\n");
+        break;
+    case 6:
+        printf("D\n");
+        break;
+    default:
+        printf("E\n");
+        break;
+    }
+    return 0;
+}
+
+【题库1-第35题】
+题目：用 switch 语句实现：接收用户输入的一个字符，判断是否为元音字母（a、e、i、o、u，不区分大小写），是则输出 "是元音字母"，否则输出 "不是元音字母"。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    char ch;
+    printf("请输入一个字符：");
+    scanf(" %c", &ch);
+    switch (ch) {
+    case 'a': case 'e': case 'i': case 'o': case 'u':
+    case 'A': case 'E': case 'I': case 'O': case 'U':
+        printf("是元音字母\n");
+        break;
+    default:
+        printf("不是元音字母\n");
+        break;
+    }
+    return 0;
+}
+
+【题库1-第36题】
+题目：用 switch 语句实现：接收用户输入的 1-4 的整数，分别执行以下操作：1→计算 10 的平方，2→计算 10 的立方，3→计算 10 的倒数，4→计算 10 的绝对值，输出结果。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int choice;
+    printf("请输入1-4的整数：");
+    scanf("%d", &choice);
+    switch (choice) {
+    case 1:
+        printf("10的平方为：%d\n", 10 * 10);
+        break;
+    case 2:
+        printf("10的立方为：%d\n", 10 * 10 * 10);
+        break;
+    case 3:
+        printf("10的倒数为：%.2f\n", 1.0 / 10);
+        break;
+    case 4:
+        printf("10的绝对值为：%d\n", 10 < 0 ? -10 : 10);
+        break;
+    default:
+        printf("选择错误\n");
+        break;
+    }
+    return 0;
+}
+
+【题库1-第37题】
+题目：接收用户输入的年份，输出是否为闰年（需判断闰年：能被 4 整除且不能被 100 整除，或能被 400 整除的年份为闰年）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int year;
+    printf("请输入年份：");
+    scanf("%d", &year);
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+        printf("%d年是闰年\n", year);
+    else
+        printf("%d年不是闰年\n", year);
+    return 0;
+}
+
+【题库1-第38题】
+题目：用 switch 语句实现：模拟 "菜单选择"，菜单选项为 1→计算1到100的和，2→退出程序，用户输入选项后执行对应操作，输入其他选项提示 "选择错误"。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int choice;
+    printf("===== 菜单 =====\n");
+    printf("1. 计算1到100的和\n");
+    printf("2. 退出程序\n");
+    printf("请输入选项：");
+    scanf("%d", &choice);
+    switch (choice) {
+    case 1: {
+        int i, sum = 0;
+        for (i = 1; i <= 100; i++)
+            sum += i;
+        printf("1到100的和为：%d\n", sum);
+        break;
+    }
+    case 2:
+        printf("退出程序\n");
+        break;
+    default:
+        printf("选择错误\n");
+        break;
+    }
+    return 0;
+}
+
+【题库1-第39题】
+题目：用 switch 语句实现：接收用户输入的两个整数 x 和 y（x < y），输入 1 则计算 x 到 y 的和，输入 2 则计算 x 到 y 的平均值，输出结果。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int x, y, choice, i;
+    long long sum = 0;
+    printf("请输入两个整数x和y（x<y）：");
+    scanf("%d %d", &x, &y);
+    printf("请输入选项（1：求和，2：求平均值）：");
+    scanf("%d", &choice);
+    switch (choice) {
+    case 1:
+        for (i = x; i <= y; i++)
+            sum += i;
+        printf("%d到%d的和为：%lld\n", x, y, sum);
+        break;
+    case 2:
+        for (i = x; i <= y; i++)
+            sum += i;
+        printf("%d到%d的平均值为：%.2f\n", x, y, (double)sum / (y - x + 1));
+        break;
+    default:
+        printf("选择错误\n");
+        break;
+    }
+    return 0;
+}
+
+【题库1-第40题】
+题目：用 switch 语句实现：接收用户输入的字符（'Y'/'y' 或 'N'/'n'），输入 'Y'/'y' 则输出 "同意"，输入 'N'/'n' 则输出 "拒绝"，输入其他字符提示 "输入无效"。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    char ch;
+    printf("请输入字符（Y/N）：");
+    scanf(" %c", &ch);
+    switch (ch) {
+    case 'Y': case 'y':
+        printf("同意\n");
+        break;
+    case 'N': case 'n':
+        printf("拒绝\n");
+        break;
+    default:
+        printf("输入无效\n");
+        break;
+    }
+    return 0;
+}
+════════════════════════════════════════════
+题库2：C语言测试2题库（数组）答案
+════════════════════════════════════════════
+
+【题库2-第1题】
+题目：定义一个包含 10 个整数的一维数组，初始化值为 1~10，遍历并打印所有偶数元素。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int i;
+    for (i = 0; i < 10; i++) {
+        if (a[i] % 2 == 0)
+            printf("%d ", a[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+【题库2-第2题】
+题目：定义一个长度为 5 的浮点型数组，从键盘输入 5 个成绩，计算并输出平均值。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    double score[5], sum = 0;
+    int i;
+    for (i = 0; i < 5; i++) {
+        printf("请输入第%d个成绩：", i + 1);
+        scanf("%lf", &score[i]);
+        sum += score[i];
+    }
+    printf("平均值为：%.2f\n", sum / 5);
+    return 0;
+}
+
+【题库2-第3题】
+题目：定义一个一维数组存储 8 个整数，找出其中的最大值和最小值并输出。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[8] = {23, 7, 56, 12, 89, 3, 45, 66};
+    int i, max, min;
+    max = a[0];
+    min = a[0];
+    for (i = 1; i < 8; i++) {
+        if (a[i] > max)
+            max = a[i];
+        if (a[i] < min)
+            min = a[i];
+    }
+    printf("最大值为：%d\n", max);
+    printf("最小值为：%d\n", min);
+    return 0;
+}
+
+【题库2-第4题】
+题目：初始化一个包含 10 个随机整数（1~100）的数组，统计其中偶数的个数。
+答案：
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main(void)
+{
+    int a[10];
+    int i, count = 0;
+    srand((unsigned)time(NULL));
+    for (i = 0; i < 10; i++) {
+        a[i] = rand() % 100 + 1;
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+    for (i = 0; i < 10; i++) {
+        if (a[i] % 2 == 0)
+            count++;
+    }
+    printf("偶数的个数为：%d\n", count);
+    return 0;
+}
+
+【题库2-第5题】
+题目：从键盘输入 6 个整数存入数组，计算所有元素的和并输出。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[6], i, sum = 0;
+    for (i = 0; i < 6; i++) {
+        printf("请输入第%d个整数：", i + 1);
+        scanf("%d", &a[i]);
+        sum += a[i];
+    }
+    printf("所有元素的和为：%d\n", sum);
+    return 0;
+}
+
+【题库2-第6题】
+题目：定义一个字符数组，存储字符串 "Hello, World!"，用循环遍历并打印每个字符。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    char str[] = "Hello, World!";
+    int i;
+    for (i = 0; str[i] != '\0'; i++) {
+        printf("%c\n", str[i]);
+    }
+    return 0;
+}
+
+【题库2-第7题】
+题目：将数组中的 10 个整数按从小到大的顺序排序（用冒泡排序法），并打印排序结果。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[10] = {64, 25, 90, 12, 22, 11, 8, 76, 33, 5};
+    int i, j, temp;
+    for (i = 0; i < 9; i++) {
+        for (j = 0; j < 9 - i; j++) {
+            if (a[j] > a[j + 1]) {
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+        }
+    }
+    printf("排序后的结果为：\n");
+    for (i = 0; i < 10; i++)
+        printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}
+
+【题库2-第8题】
+题目：定义一个数组存储 5 个学生的年龄，计算年龄大于等于 18 的学生人数。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int ages[5] = {16, 18, 20, 17, 19};
+    int i, count = 0;
+    for (i = 0; i < 5; i++) {
+        if (ages[i] >= 18)
+            count++;
+    }
+    printf("年龄大于等于18的学生人数为：%d\n", count);
+    return 0;
+}
+
+【题库2-第9题】
+题目：从键盘输入一个整数 n（n≤10），再输入 n 个整数存入数组，逆序打印数组元素。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[10], n, i;
+    printf("请输入整数n（n≤10）：");
+    scanf("%d", &n);
+    for (i = 0; i < n; i++) {
+        printf("请输入第%d个整数：", i + 1);
+        scanf("%d", &a[i]);
+    }
+    printf("逆序打印的结果为：\n");
+    for (i = n - 1; i >= 0; i--)
+        printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}
+
+【题库2-第10题】
+题目：初始化一个数组 {2,5,8,10,9}，查找能被3整除的元素并输出（若不存在输出 -1）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[5] = {2, 5, 8, 10, 9};
+    int i, found = -1;
+    for (i = 0; i < 5; i++) {
+        if (a[i] % 3 == 0) {
+            found = a[i];
+            break;
+        }
+    }
+    if (found != -1)
+        printf("能被3整除的元素为：%d\n", found);
+    else
+        printf("-1\n");
+    return 0;
+}
+
+【题库2-第11题】
+题目：定义一个长度为 7 的数组，将所有元素乘以 2 后重新存入数组并打印。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[7] = {1, 2, 3, 4, 5, 6, 7};
+    int i;
+    for (i = 0; i < 7; i++)
+        a[i] = a[i] * 2;
+    for (i = 0; i < 7; i++)
+        printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}
+
+【题库2-第12题】
+题目：从键盘输入 10 个整数，统计数组中偶数和奇数的个数。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[10], i, even = 0, odd = 0;
+    for (i = 0; i < 10; i++) {
+        printf("请输入第%d个整数：", i + 1);
+        scanf("%d", &a[i]);
+    }
+    for (i = 0; i < 10; i++) {
+        if (a[i] % 2 == 0)
+            even++;
+        else
+            odd++;
+    }
+    printf("偶数的个数为：%d\n", even);
+    printf("奇数的个数为：%d\n", odd);
+    return 0;
+}
+
+【题库2-第13题】
+题目：从键盘输入一个字符数组，将所有小写字母转换为大写字母后输出（如 "apple"→"APPLE"）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    char str[100];
+    int i;
+    printf("请输入一个字符串：");
+    scanf("%s", str);
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] >= 'a' && str[i] <= 'z')
+            str[i] = str[i] - 'a' + 'A';
+    }
+    printf("转换后的字符串为：%s\n", str);
+    return 0;
+}
+
+【题库2-第14题】
+题目：初始化数组 {10,20,33,40,51}，计算所有元素的平方和并输出。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[5] = {10, 20, 33, 40, 51};
+    int i;
+    long long sum = 0;
+    for (i = 0; i < 5; i++)
+        sum += (long long)a[i] * a[i];
+    printf("所有元素的平方和为：%lld\n", sum);
+    return 0;
+}
+
+【题库2-第15题】
+题目：从键盘输入一个字符串（不超过 20 个字符），统计其中字母 'a' 出现的次数（若不存在输出 -1）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    char str[21];
+    int i, count = 0;
+    printf("请输入一个字符串（不超过20个字符）：");
+    scanf("%20s", str);
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] == 'a')
+            count++;
+    }
+    if (count > 0)
+        printf("字母a出现的次数为：%d\n", count);
+    else
+        printf("-1\n");
+    return 0;
+}
+
+【题库2-第16题】
+题目：定义一个数组存储 6 个整数，删除其中 5 的倍数的元素（后续元素前移，空出的元素补0），打印新数组。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[6] = {5, 12, 25, 7, 30, 11};
+    int i, j, len = 6;
+    for (i = 0; i < len; i++) {
+        if (a[i] % 5 == 0) {
+            for (j = i; j < len - 1; j++)
+                a[j] = a[j + 1];
+            a[len - 1] = 0;
+            len--;
+            i--;
+        }
+    }
+    printf("删除5的倍数后的新数组为：\n");
+    for (i = 0; i < 6; i++)
+        printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}
+
+【题库2-第17题】
+题目：用数组存储 1~100 中所有能被 7 整除的数，输出这些数及其个数。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[100], i, count = 0;
+    for (i = 7; i <= 100; i++) {
+        if (i % 7 == 0) {
+            a[count] = i;
+            count++;
+        }
+    }
+    printf("1~100中能被7整除的数有：\n");
+    for (i = 0; i < count; i++)
+        printf("%d ", a[i]);
+    printf("\n个数为：%d\n", count);
+    return 0;
+}
+
+【题库2-第18题】
+题目：从键盘输入 5 个整数，将数组中最大的元素与最后一个元素交换位置并打印。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[5], i, maxIndex = 0, temp;
+    for (i = 0; i < 5; i++) {
+        printf("请输入第%d个整数：", i + 1);
+        scanf("%d", &a[i]);
+    }
+    for (i = 1; i < 5; i++) {
+        if (a[i] > a[maxIndex])
+            maxIndex = i;
+    }
+    temp = a[maxIndex];
+    a[maxIndex] = a[4];
+    a[4] = temp;
+    printf("交换后的数组为：\n");
+    for (i = 0; i < 5; i++)
+        printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}
+
+【题库2-第19题】
+题目：初始化一个数组，判断其中是否存在重复元素（如存在输出 "有重复"，否则输出 "无重复"）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[8] = {1, 5, 9, 3, 7, 5, 2, 8};
+    int i, j, hasDuplicate = 0;
+    for (i = 0; i < 8 && !hasDuplicate; i++) {
+        for (j = i + 1; j < 8; j++) {
+            if (a[i] == a[j]) {
+                hasDuplicate = 1;
+                break;
+            }
+        }
+    }
+    if (hasDuplicate)
+        printf("有重复\n");
+    else
+        printf("无重复\n");
+    return 0;
+}
+
+【题库2-第20题】
+题目：定义一个长度为 10 的数组，用随机数填充后，将奇数放在数组前半部分，偶数放在后半部分。
+答案：
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main(void)
+{
+    int a[10], odd[10], even[10];
+    int i, oddCount = 0, evenCount = 0;
+    srand((unsigned)time(NULL));
+    for (i = 0; i < 10; i++) {
+        a[i] = rand() % 100 + 1;
+        if (a[i] % 2 != 0)
+            odd[oddCount++] = a[i];
+        else
+            even[evenCount++] = a[i];
+    }
+    for (i = 0; i < oddCount; i++)
+        a[i] = odd[i];
+    for (i = 0; i < evenCount; i++)
+        a[oddCount + i] = even[i];
+    printf("调整后的数组为：\n");
+    for (i = 0; i < 10; i++)
+        printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}
+
+【题库2-第21题】
+题目：从键盘输入一个整数 n，创建一个长度为 n 的数组并从键盘输入数组的每一个元素，打印数组。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int n, i;
+    printf("请输入数组长度n：");
+    scanf("%d", &n);
+    if (n <= 0) {
+        printf("n必须为正整数！\n");
+        return 1;
+    }
+    int a[n];
+    for (i = 0; i < n; i++) {
+        printf("请输入第%d个元素：", i + 1);
+        scanf("%d", &a[i]);
+    }
+    printf("数组元素为：\n");
+    for (i = 0; i < n; i++)
+        printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}
+
+【题库2-第22题】
+题目：计算数组 {3,1,4,1,5,9} 中所有奇数的和与所有偶数的积。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[6] = {3, 1, 4, 1, 5, 9};
+    int i, oddSum = 0, evenProduct = 1, hasEven = 0;
+    for (i = 0; i < 6; i++) {
+        if (a[i] % 2 != 0)
+            oddSum += a[i];
+        else {
+            evenProduct *= a[i];
+            hasEven = 1;
+        }
+    }
+    printf("奇数的和为：%d\n", oddSum);
+    if (hasEven)
+        printf("偶数的积为：%d\n", evenProduct);
+    else
+        printf("数组中没有偶数\n");
+    return 0;
+}
+
+【题库2-第23题】
+题目：定义一个字符数组，统计其中数字字符'3'的个数。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    char str[] = "a3bc33de3f";
+    int i, count = 0;
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] == '3')
+            count++;
+    }
+    printf("字符'3'的个数为：%d\n", count);
+    return 0;
+}
+
+【题库2-第24题】
+题目：初始化数组 {5,3,8,9,1}，用选择排序法按从大到小的顺序排序并打印。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[5] = {5, 3, 8, 9, 1};
+    int i, j, maxIndex, temp;
+    for (i = 0; i < 4; i++) {
+        maxIndex = i;
+        for (j = i + 1; j < 5; j++) {
+            if (a[j] > a[maxIndex])
+                maxIndex = j;
+        }
+        if (maxIndex != i) {
+            temp = a[i];
+            a[i] = a[maxIndex];
+            a[maxIndex] = temp;
+        }
+    }
+    printf("从大到小排序后的结果为：\n");
+    for (i = 0; i < 5; i++)
+        printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}
+
+【题库2-第25题】
+题目：从键盘输入 10 个整数（数据互不相同），找出数组中第二大的元素并打印输出。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[10], i, max, second;
+    for (i = 0; i < 10; i++) {
+        printf("请输入第%d个整数：", i + 1);
+        scanf("%d", &a[i]);
+    }
+    max = a[0] > a[1] ? a[0] : a[1];
+    second = a[0] > a[1] ? a[1] : a[0];
+    for (i = 2; i < 10; i++) {
+        if (a[i] > max) {
+            second = max;
+            max = a[i];
+        } else if (a[i] > second) {
+            second = a[i];
+        }
+    }
+    printf("第二大的元素为：%d\n", second);
+    return 0;
+}
+
+【题库2-第26题】
+题目：定义一个数组，将其中所有偶数的元素累加，输出累加和。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[8] = {1, 2, 3, 4, 5, 6, 7, 8};
+    int i, sum = 0;
+    for (i = 0; i < 8; i++) {
+        if (a[i] % 2 == 0)
+            sum += a[i];
+    }
+    printf("所有偶数元素的累加和为：%d\n", sum);
+    return 0;
+}
+
+【题库2-第27题】
+题目：用数组存储用户输入的多个非0整数（以 0 结束），计算所有输入整数的平均值。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[100];
+    int num, count = 0, i;
+    long long sum = 0;
+    printf("请输入多个非0整数（输入0结束）：\n");
+    while (1) {
+        scanf("%d", &num);
+        if (num == 0)
+            break;
+        if (count < 100)
+            a[count++] = num;
+    }
+    if (count == 0) {
+        printf("没有输入有效数据。\n");
+        return 0;
+    }
+    for (i = 0; i < count; i++)
+        sum += a[i];
+    printf("平均值为：%.2f\n", (double)sum / count);
+    return 0;
+}
+
+【题库2-第28题】
+题目：初始化数组 {1,2,3,4,5}，将数组元素循环右移一位（如 [1,2,3,4,5]→[5,1,2,3,4]）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[5] = {1, 2, 3, 4, 5};
+    int i, last = a[4];
+    for (i = 4; i > 0; i--)
+        a[i] = a[i - 1];
+    a[0] = last;
+    printf("循环右移一位后的数组为：\n");
+    for (i = 0; i < 5; i++)
+        printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}
+
+【题库2-第29题】
+题目：从键盘输入一个奇数位长度的字符串，判断其是否为回文字符串（如 "aba" 是回文，"abc" 不是）。
+答案：
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+    char str[100];
+    int len, i, isPalindrome = 1;
+    printf("请输入一个奇数位长度的字符串：");
+    scanf("%s", str);
+    len = strlen(str);
+    for (i = 0; i < len / 2; i++) {
+        if (str[i] != str[len - 1 - i]) {
+            isPalindrome = 0;
+            break;
+        }
+    }
+    if (isPalindrome)
+        printf("%s 是回文字符串\n", str);
+    else
+        printf("%s 不是回文字符串\n", str);
+    return 0;
+}
+
+【题库2-第30题】
+题目：定义两个长度相同的整数数组，将对应元素相加后存入第三个数组并打印。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[5] = {1, 2, 3, 4, 5};
+    int b[5] = {10, 20, 30, 40, 50};
+    int c[5];
+    int i;
+    for (i = 0; i < 5; i++)
+        c[i] = a[i] + b[i];
+    printf("相加后的第三个数组为：\n");
+    for (i = 0; i < 5; i++)
+        printf("%d ", c[i]);
+    printf("\n");
+    return 0;
+}
+
+【题库2-第31题】
+题目：定义一个 3×3 的二维整数数组，初始化值为 1~9，按行遍历并打印所有元素。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int i, j;
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++)
+            printf("%d ", a[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
+
+【题库2-第32题】
+题目：从键盘输入一个 2×4 的浮点型数组，计算所有元素的总和并输出。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    double a[2][4], sum = 0;
+    int i, j;
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 4; j++) {
+            printf("请输入a[%d][%d]：", i, j);
+            scanf("%lf", &a[i][j]);
+            sum += a[i][j];
+        }
+    }
+    printf("所有元素的总和为：%.2f\n", sum);
+    return 0;
+}
+
+【题库2-第33题】
+题目：定义一个 4×4 的二维数组，找出其中的最大值及其所在的行号和列号。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[4][4] = {
+        {3, 8, 12, 5},
+        {7, 21, 9, 14},
+        {6, 17, 25, 2},
+        {11, 4, 19, 13}
+    };
+    int i, j, max, maxRow = 0, maxCol = 0;
+    max = a[0][0];
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            if (a[i][j] > max) {
+                max = a[i][j];
+                maxRow = i;
+                maxCol = j;
+            }
+        }
+    }
+    printf("最大值为：%d\n", max);
+    printf("所在行号为：%d，列号为：%d\n", maxRow, maxCol);
+    return 0;
+}
+
+【题库2-第34题】
+题目：初始化一个 3×5 的数组，计算每一行元素的平均值，输出每行平均值。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[3][5] = {
+        {1, 2, 3, 4, 5},
+        {6, 7, 8, 9, 10},
+        {2, 4, 6, 8, 10}
+    };
+    int i, j, sum;
+    for (i = 0; i < 3; i++) {
+        sum = 0;
+        for (j = 0; j < 5; j++)
+            sum += a[i][j];
+        printf("第%d行的平均值为：%.2f\n", i + 1, (double)sum / 5);
+    }
+    return 0;
+}
+
+【题库2-第35题】
+题目：从键盘输入一个 5×3 的整数数组，统计数组中所有偶数的个数。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[5][3];
+    int i, j, count = 0;
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("请输入a[%d][%d]：", i, j);
+            scanf("%d", &a[i][j]);
+            if (a[i][j] % 2 == 0)
+                count++;
+        }
+    }
+    printf("所有偶数的个数为：%d\n", count);
+    return 0;
+}
+
+【题库2-第36题】
+题目：定义一个 5×5 的二维数组，计算其主对角线元素的和（主对角线：a[0][0]+a[1][1]+…）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[5][5] = {
+        {1, 2, 3, 4, 5},
+        {6, 7, 8, 9, 10},
+        {11, 12, 13, 14, 15},
+        {16, 17, 18, 19, 20},
+        {21, 22, 23, 24, 25}
+    };
+    int i, sum = 0;
+    for (i = 0; i < 5; i++)
+        sum += a[i][i];
+    printf("主对角线元素的和为：%d\n", sum);
+    return 0;
+}
+
+【题库2-第37题】
+题目：将一个 3×4 的数组转置为 4×3 的数组（行变列，列变行）并打印。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[3][4] = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12}
+    };
+    int b[4][3];
+    int i, j;
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 4; j++)
+            b[j][i] = a[i][j];
+    }
+    printf("转置后的4×3数组为：\n");
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 3; j++)
+            printf("%d ", b[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
+
+【题库2-第38题】
+题目：初始化一个 4×4 的数组，用循环将所有主对角线的元素赋值为 1，其余为 0。（主对角线：a[0][0]、a[1][1]、…）
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[4][4];
+    int i, j;
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            if (i == j)
+                a[i][j] = 1;
+            else
+                a[i][j] = 0;
+        }
+    }
+    printf("数组为：\n");
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++)
+            printf("%d ", a[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
+
+【题库2-第39题】
+题目：从键盘输入一个元素值不大于10的 3×3 的数组，计算其所有元素的乘积并输出。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[3][3];
+    int i, j;
+    long long product = 1;
+    printf("请输入3×3的数组元素（元素值不大于10）：\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            scanf("%d", &a[i][j]);
+            product *= a[i][j];
+        }
+    }
+    printf("所有元素的乘积为：%lld\n", product);
+    return 0;
+}
+
+【题库2-第40题】
+题目：定义一个 5×2 的二维数组，找出每一列中的最小值，输出列号、行号及对应最小值。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[5][2] = {
+        {3, 8},
+        {9, 2},
+        {6, 5},
+        {1, 7},
+        {4, 10}
+    };
+    int i, j, min, minRow;
+    for (j = 0; j < 2; j++) {
+        min = a[0][j];
+        minRow = 0;
+        for (i = 1; i < 5; i++) {
+            if (a[i][j] < min) {
+                min = a[i][j];
+                minRow = i;
+            }
+        }
+        printf("第%d列最小值为：%d，行号：%d\n", j, min, minRow);
+    }
+    return 0;
+}
+
+【题库2-第41题】
+题目：初始化一个 3×3 的数组，判断其是否为对称矩阵（a[i][j] == a[j][i]）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[3][3] = {
+        {1, 2, 3},
+        {2, 5, 6},
+        {3, 6, 9}
+    };
+    int i, j, isSymmetric = 1;
+    for (i = 0; i < 3 && isSymmetric; i++) {
+        for (j = 0; j < 3; j++) {
+            if (a[i][j] != a[j][i]) {
+                isSymmetric = 0;
+                break;
+            }
+        }
+    }
+    if (isSymmetric)
+        printf("该矩阵是对称矩阵\n");
+    else
+        printf("该矩阵不是对称矩阵\n");
+    return 0;
+}
+
+【题库2-第42题】
+题目：用二维数组存储 5 名学生的 3 门成绩，计算每个学生的总分并输出。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int score[5][3] = {
+        {80, 90, 85},
+        {70, 75, 88},
+        {92, 68, 79},
+        {60, 85, 90},
+        {77, 82, 91}
+    };
+    int i, j, sum;
+    for (i = 0; i < 5; i++) {
+        sum = 0;
+        for (j = 0; j < 3; j++)
+            sum += score[i][j];
+        printf("第%d名学生的总分为：%d\n", i + 1, sum);
+    }
+    return 0;
+}
+
+【题库2-第43题】
+题目：从键盘输入一个 4×4 的数组，将第 2 行和第 4 行的元素交换后打印。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[4][4];
+    int i, j, temp;
+    printf("请输入4×4的数组元素：\n");
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++)
+            scanf("%d", &a[i][j]);
+    }
+    for (j = 0; j < 4; j++) {
+        temp = a[1][j];
+        a[1][j] = a[3][j];
+        a[3][j] = temp;
+    }
+    printf("交换第2行和第4行后的数组为：\n");
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++)
+            printf("%d ", a[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
+
+【题库2-第44题】
+题目：定义一个 2×3 的数组，计算所有元素的平方和并输出。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[2][3] = {{1, 2, 3}, {4, 5, 6}};
+    int i, j;
+    long long sum = 0;
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 3; j++)
+            sum += (long long)a[i][j] * a[i][j];
+    }
+    printf("所有元素的平方和为：%lld\n", sum);
+    return 0;
+}
+
+【题库2-第45题】
+题目：初始化一个 5×5 的数组，将主对角线的元素设为 5，其余为 0（主对角线：a[0][0]、a[1][1]…），（副对角线：a[0][4]、a[1][3]、a[2][2]、a[3][1]、a[4][0]…）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[5][5];
+    int i, j;
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            if (i == j)
+                a[i][j] = 5;
+            else
+                a[i][j] = 0;
+        }
+    }
+    printf("数组为：\n");
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++)
+            printf("%d ", a[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
+
+【题库2-第46题】
+题目：用二维数组存储 3×3 的矩阵，计算矩阵中所有偶数的和与奇数的和。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+    int i, j, evenSum = 0, oddSum = 0;
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            if (a[i][j] % 2 == 0)
+                evenSum += a[i][j];
+            else
+                oddSum += a[i][j];
+        }
+    }
+    printf("所有偶数的和为：%d\n", evenSum);
+    printf("所有奇数的和为：%d\n", oddSum);
+    return 0;
+}
+
+【题库2-第47题】
+题目：从键盘输入一个 3×5 的数组，打印其中所有能被 3 整除的元素及其位置（行，列）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[3][5];
+    int i, j;
+    printf("请输入3×5的数组元素：\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 5; j++)
+            scanf("%d", &a[i][j]);
+    }
+    printf("能被3整除的元素及其位置：\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 5; j++) {
+            if (a[i][j] % 3 == 0)
+                printf("元素 %d 位于（第%d行，第%d列）\n", a[i][j], i, j);
+        }
+    }
+    return 0;
+}
+
+【题库2-第48题】
+题目：定义两个 2×2 的矩阵，计算它们的乘积（矩阵乘法：c[i][j] = a[i][0]*b[0][j] + a[i][1]*b[1][j]）。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[2][2] = {{1, 2}, {3, 4}};
+    int b[2][2] = {{5, 6}, {7, 8}};
+    int c[2][2];
+    int i, j, k;
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            c[i][j] = 0;
+            for (k = 0; k < 2; k++)
+                c[i][j] += a[i][k] * b[k][j];
+        }
+    }
+    printf("矩阵乘积为：\n");
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++)
+            printf("%d ", c[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
+
+【题库2-第49题】
+题目：初始化一个 4×3 的数组，将每一列的元素按从小到大排序后打印。
+答案：
+#include <stdio.h>
+int main(void)
+{
+    int a[4][3] = {
+        {9, 2, 7},
+        {4, 8, 1},
+        {6, 3, 5},
+        {2, 10, 12}
+    };
+    int i, j, k, temp;
+    for (j = 0; j < 3; j++) {
+        for (i = 0; i < 3; i++) {
+            for (k = 0; k < 3 - i; k++) {
+                if (a[k][j] > a[k + 1][j]) {
+                    temp = a[k][j];
+                    a[k][j] = a[k + 1][j];
+                    a[k + 1][j] = temp;
+                }
+            }
+        }
+    }
+    printf("每一列从小到大排序后的数组为：\n");
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 3; j++)
+            printf("%d ", a[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
