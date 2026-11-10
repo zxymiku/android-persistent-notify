@@ -1,0 +1,28 @@
+{
+  "package": "io.github.zxymiku.cquizband",
+  "name": "C语言题库",
+  "versionName": "1.0.0",
+  "versionCode": 1,
+  "minPlatformVersion": "1060",
+  "icon": "/icon/icon.png",
+  "designWidth": 212,
+  "config": {
+    "logLevel": "off"
+  },
+  "router": {
+    "entry": "Answer",
+    "pages": {
+      "Answer": {
+        "component": "index"
+      },
+      "Detail": {
+        "component": "index"
+      }
+    }
+  },
+  "display": {
+    "titleBar": false,
+    "fullScreen": true,
+    "backgroundColor": "#0d0d0d"
+  }
+}

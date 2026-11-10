@@ -1,0 +1,98 @@
+<template>
+  <div class="page">
+    <div class="header">
+      <div class="logo"></div>
+      <text class="title">C语言题库</text>
+      <text class="sub">{{ questions.length }} QUESTIONS</text>
+    </div>
+    <scroll class="list" scrollpage="false">
+      <div class="item" for="{{ (idx, item) in questions }}" onclick="openDetail(item)">
+        <text class="qtext">{{ item.t }}　{{ item.q }}</text>
+        <text class="arrow">▶</text>
+      </div>
+      <div class="footer">
+        <text class="footertext">RHODES ISLAND // ARKNIGHTS STYLE</text>
+      </div>
+    </scroll>
+  </div>
+</template>
+
+<style>
+  .page {
+    flex-direction: column;
+    background-color: #0d0d0d;
+    width: 212px;
+    height: 520px;
+  }
+  .header {
+    flex-direction: column;
+    padding: 10px 12px 8px 12px;
+    border-bottom-width: 2px;
+    border-bottom-color: #ffd902;
+  }
+  .logo {
+    width: 10px;
+    height: 10px;
+    background-color: #ffd902;
+    margin-bottom: 6px;
+  }
+  .title {
+    color: #ededed;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .sub {
+    color: #8a8a8a;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .list {
+    flex: 1;
+    flex-direction: column;
+  }
+  .item {
+    flex-direction: column;
+    padding: 8px 12px;
+    border-bottom-width: 1px;
+    border-bottom-color: #2e2e2e;
+  }
+  .qtext {
+    color: #ededed;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: left;
+  }
+  .arrow {
+    color: #ffd902;
+    font-size: 11px;
+    margin-top: 4px;
+  }
+  .footer {
+    padding: 10px 12px 16px 12px;
+    align-items: center;
+  }
+  .footertext {
+    color: #5a5a5a;
+    font-size: 9px;
+  }
+</style>
+
+<script>
+  var router = require('@system.router');
+  var data = require('../Common/data.js');
+
+  module.exports = {
+    data: {
+      questions: []
+    },
+    onInit: function () {
+      this.questions = data.questions;
+    },
+    openDetail: function (item) {
+      router.push({
+        uri: 'Detail',
+        params: { id: item.id }
+      });
+    }
+  };
+</script>
