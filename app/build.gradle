@@ -35,4 +35,13 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.core:core:1.13.1'
     implementation 'androidx.activity:activity:1.9.3'
+
+    constraints {
+        implementation('org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22') {
+            because 'kotlin-stdlib-jdk8 is now a part of kotlin-stdlib; align versions to avoid duplicate classes'
+        }
+        implementation('org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22') {
+            because 'kotlin-stdlib-jdk7 is now a part of kotlin-stdlib; align versions to avoid duplicate classes'
+        }
+    }
 }
